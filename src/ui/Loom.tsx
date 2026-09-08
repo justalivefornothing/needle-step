@@ -131,7 +131,8 @@ export function Loom({ text, pattern, view, algo }: LoomProps) {
     const right = (shift + m) * PITCH
     const margin = PITCH * 2
     if (left < el.scrollLeft + margin || right > el.scrollLeft + el.clientWidth - margin) {
-      el.scrollLeft = Math.max(0, left - el.clientWidth / 3)
+      // Centre the pattern window; on narrow screens that is the only thing that fits.
+      el.scrollLeft = Math.max(0, (left + right) / 2 - el.clientWidth / 2)
     }
   }, [shift, m])
 

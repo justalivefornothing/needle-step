@@ -4,6 +4,7 @@ import { AlgoTabs, Inputs, Transport } from './ui/Controls'
 import { HashPanel } from './ui/HashPanel'
 import { Loom } from './ui/Loom'
 import { Pseudocode } from './ui/Pseudocode'
+import { Race } from './ui/Race'
 import { Readout } from './ui/Readout'
 import { TagCard } from './ui/TagCard'
 import { usePlayer } from './ui/usePlayer'
@@ -112,7 +113,7 @@ export default function App() {
           </div>
         </>
       ) : (
-        <section className="card text-denim-300">Race mode is being stitched.</section>
+        <Race text={text} pattern={pattern} />
       )}
 
       <footer className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-4 text-xs text-denim-500">

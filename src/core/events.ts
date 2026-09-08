@@ -86,6 +86,8 @@ export type Matcher = (text: string, pattern: string) => Generator<StepEvent, vo
 export interface MatchResult {
   matches: number[]
   comparisons: number
+  /** Rabin-Karp hash checks; together with comparisons this is the "work" done. */
+  hashes: number
   shifts: number
   spurious: number
   events: number
@@ -93,12 +95,15 @@ export interface MatchResult {
 
 /** Drain a matcher and total up what it did. */
 export function runToEnd(gen: Iterable<StepEvent>): MatchResult {
-  const r: MatchResult = { matches: [], comparisons: 0, shifts: 0, spurious: 0, events: 0 }
+  const r: MatchResult = { matches: [], comparisons: 0, hashes: 0, shifts: 0, spurious: 0, events: 0 }
   for (const e of gen) {
     r.events++
     switch (e.type) {
       case 'compare':
         r.comparisons++
+        break
+      case 'hash':
+        r.hashes++
         break
       case 'shift':
         r.shifts++
@@ -108,8 +113,6 @@ export function runToEnd(gen: Iterable<StepEvent>): MatchResult {
         break
       case 'mismatch':
         if (e.spurious) r.spurious++
-        break
-      case 'hash':
         break
     }
   }
