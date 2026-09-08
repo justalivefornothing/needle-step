@@ -70,11 +70,11 @@ and tag labels) and JetBrains Mono for cells and code.
 
 ## Milestones
 
-- [ ] chore: plan + license, scaffold
-- [ ] feat: core matchers + tables + rolling hash, tests green
-- [ ] feat: loom view, player controls, presets, pseudocode
-- [ ] feat: tag cards (KMP / Horspool), Rabin-Karp hash panel
-- [ ] feat: race mode with counters and bar chart
-- [ ] fix/polish after smoke screenshot
-- [ ] docs: readme
+- [x] chore: plan + license, scaffold
+- [x] feat: core matchers + tables + rolling hash, tests green
+- [x] feat: loom view, player controls, presets, pseudocode
+- [x] feat: tag cards (KMP / Horspool), Rabin-Karp hash panel
+- [x] feat: race mode with counters and bar chart
+- [x] fix/polish after smoke screenshot
+- [x] docs: readme
 - [ ] publish private repo
